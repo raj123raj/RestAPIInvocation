@@ -19,6 +19,8 @@
     </div>
     <div class="col-md-6 centeralign">
         <p>This Page Displays Country details by Zip Code. Example : 600 028</p>
+        <input type="text" v-model="input.zipcode" placeholder="Zip Code" />
+        <button v-on:click="getLocationDetails()">Get Location Details</button>
         <div class="card-body">
             <h5 class="card-title">{{countrydetails["post code"]}}</h5>
             <p class="card-text">Zip Code : {{countrydetails["post code"]}}</p>            <!--  -->
@@ -51,18 +53,31 @@ export default {
     mounted(){
         axios.get(`https://api.zippopotam.us/in/600028`)
         .then(response => { 
-            console.log(response);
+            this.zipcode = response.data.origin;
+            //console.log(response);
             this.countrydetails = response.data;
         }).catch(error => { 
-            console.log(error);
+            //console.log(error);
         })
 
     },
     data() {
         return {
+            input: {
+                zipcode: ""
+            },            
             countrydetails: {}
+        }
+    },
+
+    methods: {
+        getLocationDetails() {
+            axios.get(`https://api.zippopotam.us/in/`+this.input.zipcode)
+            .then(function(response)  { 
+                this.countrydetails = response.data;
+            }.bind(this)).catch(error => { 
+            })            
         }
     }
 }
-
 </script>
