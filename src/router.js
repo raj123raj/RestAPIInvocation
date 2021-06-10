@@ -13,12 +13,7 @@ const router =  new Router({
       path: '/detailsByZipCode',
       name: 'detailsByZipCode',
       component: detailsByZipCode
-    }/* ,
-    {
-      path: '/customerdetails/:id',
-      name: 'customerdetails',
-      component: CustomerDetails
-    } */
+    }
   ]
 })
 export default router
