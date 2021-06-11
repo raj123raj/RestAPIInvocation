@@ -38,7 +38,10 @@ The Application runs on **localhost:8080**
 
 ### Views and components
 
-**detailsByZipCode** : This View Displays Latitude, Longitude, State, Country, Zipcode details of a given Zipcode. It gets the details from https://api.zippopotam.us/in/600028 where the last value mentions about a zip code of a location.
+**detailsByZipCode** : This View Displays Latitude, Longitude, State, Country, Zipcode details of a given Zipcode. It gets the details from https://api.zippopotam.us/in/600028 where the last value mentions about a zip code of a location. Similarly we can input some other zip codes and get the details as well.
+
+**getExchangeRates** : This View Displays Base currency, As on date value, Exchange rate of few other currencies. 
+https://api.exchangerate-api.com/v4/latest/INR is the REST API call used where the last argument is the <CurrencyName>. It can be USD, GBP etc., Basically it is an example to use this API, get results and parse and show the exchange rates of other currencies.
 
 ### Http Library [![Generic badge](https://img.shields.io/badge/http-axios-blue.svg)](https://www.npmjs.com/package/axios)
 
@@ -49,6 +52,9 @@ The Application runs on **localhost:8080**
 The Application has 2 endpoints
 
 **/detailsByZipCode** : The ties to *detailsByZipCode* View
+
+**/getExchangeRates** : The ties to "getExchangeRates" View
+
 
 ## References
 
